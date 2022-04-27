@@ -6,6 +6,7 @@
     "build": "next build",
     "start": "next start",
     "test": "jest --watch",
+    "watch": "jest --watchAll",
     "test:ci": "jest --ci"
   },
   "dependencies": {
