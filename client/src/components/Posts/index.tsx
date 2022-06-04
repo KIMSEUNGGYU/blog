@@ -5,7 +5,7 @@ import PostItem from '../PostItem';
 // TODO-GYU: DELTE
 // 후에 api 요청 후 실제 데이터랑 연동
 // 임시 정적인 데이터로 렌더링
-import POSTS from '../../fixture/posts';
+import POSTS from '../../../fixture/posts';
 
 type PostsProps = {
   posts: any[];

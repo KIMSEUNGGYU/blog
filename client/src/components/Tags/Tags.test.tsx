@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import Tags from './';
+import Tags from '.';
 
 describe('Tags', () => {
   // TODO-GYU : 테스트 케이스 추가

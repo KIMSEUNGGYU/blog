@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 
 import PostItem from '.';
 
-import POSTS from '../../fixture/posts';
+import POSTS from '../../../fixture/posts';
 
 describe('PostItem', () => {
   it('render', () => {

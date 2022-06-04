@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import TagItem from './';
+import TagItem from '.';
 
 describe('TagItem', () => {
   const tagName = 'all';

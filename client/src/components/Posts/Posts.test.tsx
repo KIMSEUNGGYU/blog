@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import POSTS from '../../fixture/posts';
+import POSTS from '../../../fixture/posts';
 
 import Posts from '.';
 
