@@ -10,3 +10,17 @@ export type MultiSelectType = {
   id: string;
   name: string;
 };
+
+export type Tag = {
+  id: string;
+  name: string;
+  color?: string;
+};
+
+export type Post = {
+  id: string;
+  title: string;
+  description: string;
+  tags: Tag[];
+  createdTime: string;
+};
