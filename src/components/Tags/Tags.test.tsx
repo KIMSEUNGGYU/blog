@@ -1,11 +1,18 @@
 import { render } from '@testing-library/react';
 
 import { Tag } from '@/types/index';
+
 import Tags from '.';
 
 describe('Tags', () => {
   function renderComponent(tags: Tag[]) {
-    return render(<Tags tags={tags} />);
+    return render(
+      <Tags
+        tags={tags} //
+        selectedTag="#전체보기"
+        onClick={jest.fn}
+      />,
+    );
   }
 
   describe('태그(tags)가 주어진 경우 ', () => {

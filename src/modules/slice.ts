@@ -1,11 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { DEFAULT_SELECTED_TAG } from '@/src/constant';
+
 type InitialState = {
   selectedTag: string;
 };
 
 export const initialState = {
-  selectedTag: '#전체보기',
+  selectedTag: DEFAULT_SELECTED_TAG,
 } as InitialState;
 
 // define

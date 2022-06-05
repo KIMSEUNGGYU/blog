@@ -1,18 +1,39 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+
+import userEvent from '@testing-library/user-event';
 
 import TagItem from '.';
 
 describe('TagItem', () => {
-  const tagName = 'all';
+  const tagName = '전체보기';
 
-  // TODO-GYU: 테스트 코드 추가
-  // - name 인자가 주어지지 않는 경우 추가
-  // - 클릭한 경우 추가
-  // - faker 라이브러리를 통해 임의의 값으로 처리
+  const handleClick = jest.fn();
 
-  it('render', () => {
-    const { container } = render(<TagItem name={tagName} />);
+  beforeEach(() => {
+    handleClick.mockClear();
+  });
+
+  function renderComponent() {
+    return render(
+      <TagItem
+        name={tagName} //
+        selectedTag="#전체보기"
+        onClick={handleClick}
+      />,
+    );
+  }
+
+  it('주어진 태그를 렌더링한다.', () => {
+    const { container } = renderComponent();
 
     expect(container).toHaveTextContent(`#${tagName}`);
+  });
+
+  it('버튼을 클릭하면, handleClick 를 호출한다.', () => {
+    renderComponent();
+
+    userEvent.click(screen.getByRole('button', { name: `#${tagName}` }));
+
+    expect(handleClick).toBeCalledWith(`#${tagName}`);
   });
 });

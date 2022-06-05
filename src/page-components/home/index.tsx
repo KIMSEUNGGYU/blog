@@ -4,7 +4,8 @@ import * as S from './styles';
 
 import Header from '@/components/Header';
 import TagsContainer from '@/src/containers/TagsContainer';
-import Posts from '@/components/Posts';
+import PostsContainer from '@/src/containers/PostsContainer';
+// import Posts from '@/components/Posts';
 
 type Props = {
   tags: Tag[];
@@ -19,7 +20,9 @@ export default function HomePage({ tags, posts }: Props) {
       <TagsContainer
         tags={tags} //
       />
-      <Posts posts={posts} />
+      <PostsContainer
+        posts={posts} //
+      />
     </S.Container>
   );
 }
