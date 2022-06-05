@@ -1,46 +1,47 @@
-import * as S from './styles';
+import { Tag, Post, MultiSelectType } from '@/types/index';
 
-import Header from '../components/Header';
-import Tags from '../components/Tags';
-import Posts from '../components/Posts';
-
-import { getDatabaseForTag } from '@/apis/tags';
-
-import { Tag } from '@/types/tags';
-import { MultiSelectType } from '@/types/notionApi';
+import { getDatabaseForTag, getDatabaseForPosts } from '@/apis/index';
 
 import { HOME_POSTS_DATABASE_ID } from 'src/constant';
 
-type IndexPageProps = {
+import HomePage from '@/page-components/home';
+
+type Props = {
   tags: Tag[];
+  posts: Post[];
 };
 
-export default function Index({ tags }: IndexPageProps) {
+export default function Index({ tags, posts }: Props) {
   return (
-    <S.Container>
-      <Header />
-      <S.Divider />
-      <Tags tags={tags} />
-      <Posts posts={null} />
-    </S.Container>
+    <HomePage
+      tags={tags} //
+      posts={posts}
+    />
   );
 }
 
 export async function getServerSideProps() {
   const postsDatabaseId = HOME_POSTS_DATABASE_ID || '';
 
-  // posts
-  // const postsDatabase = await notion.databases.query({
-  //   database_id: rootPostsDatabaseId,
-  // });
-
   // parse Tags
   const tagsDatabase = await getDatabaseForTag(postsDatabaseId);
   const tags = (tagsDatabase.properties.tags as MultiSelectType).multi_select.options;
 
+  // parse posts
+  const postsDatabase = await getDatabaseForPosts(postsDatabaseId);
+  const posts = postsDatabase.results //
+    .map((value: any) => ({
+      id: value.id,
+      title: value.properties.title.title[0]['plain_text'],
+      tags: value.properties.tags['multi_select'],
+      description: value.properties.description['rich_text'][0]['plain_text'],
+      createdTime: new Date(value.created_time).toLocaleDateString(),
+    }));
+
   return {
     props: {
       tags,
+      posts,
     },
   };
 }
