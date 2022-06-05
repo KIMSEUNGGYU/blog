@@ -16,11 +16,14 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
+      "@/fixture/*": ["fixture/*"],
+      "@/types/*": ["src/types/*"],
       "@/components/*": ["src/components/*"],
+      "@/page-components/*": ["src/page-components/*"],
       "@/pages/*": ["src/pages/*"],
       "@/styles/*": ["styles/*"],
-      "@/types/*": ["src/types/*"],
-      "@/apis/*": ["src/pages/apis/*"]
+      "@/apis/*": ["src/pages/apis/*"],
+      "@/src/*": ["src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "types.d.ts"],
