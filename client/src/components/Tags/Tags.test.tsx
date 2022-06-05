@@ -1,7 +1,6 @@
 import { render } from '@testing-library/react';
 
-import { Tag } from '@/types/tags';
-
+import { Tag } from '@/types/index';
 import Tags from '.';
 
 describe('Tags', () => {
