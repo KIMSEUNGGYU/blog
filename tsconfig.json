@@ -21,8 +21,8 @@
       "@/components/*": ["src/components/*"],
       "@/page-components/*": ["src/page-components/*"],
       "@/pages/*": ["src/pages/*"],
-      "@/styles/*": ["styles/*"],
-      "@/apis/*": ["src/pages/apis/*"],
+      "@/styles/*": ["src/styles/*"],
+      "@/api/*": ["src/pages/api/*"],
       "@/src/*": ["src/*"]
     }
   },
