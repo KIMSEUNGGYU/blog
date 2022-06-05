@@ -1,38 +1,32 @@
+import { Post, Tag } from '@/types/index';
+
 import * as S from './styles';
 
-const postItem = {
-  title: '',
-  createdAt: '',
-  summary: '',
-  contents: '',
-  tags: [''],
+type Props = {
+  post: Post;
 };
 
-type PostItemProps = {
-  post: typeof postItem;
-};
-
-export default function PostItem({ post }: PostItemProps) {
-  const { title, createdAt, contents, tags } = post;
+export default function PostItem({ post }: Props) {
+  const { title, createdTime, description, tags } = post;
 
   return (
     <S.PostItem>
       <div>
-        <div>
-          <S.Title>{title}</S.Title>
-          <S.CreatedAt>{createdAt}</S.CreatedAt>
-        </div>
+        <S.Title>{title}</S.Title>
       </div>
-      <S.Contents>
-        <span>{contents}</span>
-      </S.Contents>
-      <S.Tags>
-        {tags.map((tag) => (
-          <li key={`${tag}`}>
-            <p>{`#${tag}`}</p>
-          </li>
-        ))}
-      </S.Tags>
+      <S.Description>
+        <span>{description}</span>
+      </S.Description>
+      <S.Footer>
+        <S.Tags>
+          {tags.map(({ id, name }: Tag) => (
+            <li key={`${id}`}>
+              <p>{`#${name}`}</p>
+            </li>
+          ))}
+        </S.Tags>
+        <S.CreatedAt>{createdTime}</S.CreatedAt>
+      </S.Footer>
     </S.PostItem>
   );
 }
