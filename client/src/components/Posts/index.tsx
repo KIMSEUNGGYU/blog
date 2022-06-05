@@ -1,18 +1,15 @@
 import * as S from './styles';
 
+import { Post } from '@/types/index';
+
 import PostItem from '../PostItem';
 
-// TODO-GYU: DELTE
-// 후에 api 요청 후 실제 데이터랑 연동
-// 임시 정적인 데이터로 렌더링
-import POSTS from '../../../fixture/posts';
-
-type PostsProps = {
-  posts: any[];
+type Props = {
+  posts: Post[];
 };
 
-export default function Posts(props: PostsProps) {
-  const posts = props.posts || POSTS;
+export default function Posts(props: Props) {
+  const posts = props.posts;
 
   if (posts.length === 0) {
     return (
