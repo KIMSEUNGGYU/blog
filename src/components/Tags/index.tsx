@@ -2,15 +2,17 @@ import * as S from './styles';
 
 import TagItem from '../TagItem';
 
-import { Tag } from '@/types/tags';
+import { Tag } from '@/types/index';
 
-type TagsProps = {
+type Props = {
   tags: Tag[];
+  selectedTag: string;
+  onClick: (tagName: string) => void;
 };
 
-// TODO-GYU: props 테스트 코드를 위해 적용
-// 리팩토링 필수
-export default function Tags(props: TagsProps) {
+export default function Tags(props: Props) {
+  const { onClick } = props;
+
   const tags = [
     {
       id: 'gyu-all',
@@ -25,6 +27,8 @@ export default function Tags(props: TagsProps) {
         <TagItem
           key={id} //
           name={name}
+          selectedTag={props.selectedTag}
+          onClick={onClick}
         />
       ))}
     </S.TagList>

@@ -3,7 +3,7 @@ import { Tag, Post } from '@/types/index';
 import * as S from './styles';
 
 import Header from '@/components/Header';
-import Tags from '@/components/Tags';
+import TagsContainer from '@/src/containers/TagsContainer';
 import Posts from '@/components/Posts';
 
 type Props = {
@@ -16,7 +16,9 @@ export default function HomePage({ tags, posts }: Props) {
     <S.Container>
       <Header />
       <S.Divider />
-      <Tags tags={tags} />
+      <TagsContainer
+        tags={tags} //
+      />
       <Posts posts={posts} />
     </S.Container>
   );
