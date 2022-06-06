@@ -13,7 +13,12 @@ export default function PostItem({ post }: Props) {
 
   return (
     <S.PostItem>
-      <Link href={`/posts/${post.id}`}>
+      <Link
+        href={{
+          pathname: `/posts/${post.id}`,
+          query: { post: JSON.stringify(post) },
+        }}
+      >
         <a>
           <div>
             <S.Title>{title}</S.Title>
