@@ -18,6 +18,7 @@ export default function PostItem({ post }: Props) {
           pathname: `/posts/${post.id}`,
           query: { post: JSON.stringify(post) },
         }}
+        as={`/posts/${post.id}`}
       >
         <a>
           <div>
