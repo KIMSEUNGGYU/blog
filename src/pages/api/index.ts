@@ -2,9 +2,17 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 import notion from './notion/client';
 
-import { MultiSelectType } from '@/types/index';
+import { MultiSelectType, Post } from '@/types/index';
 
 import { HOME_POSTS_DATABASE_ID } from 'src/constant';
+
+type Cache = {
+  [key: string]: {
+    tags: any[];
+    posts: Post[];
+  };
+};
+const cache: Cache = {};
 
 const getDatabaseForPosts = async (databaseId: string) => {
   const postsDatabase = await notion.databases.query({
@@ -31,6 +39,13 @@ const getDatabaseForTag = async (databaseId: string) => {
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const postsDatabaseId = HOME_POSTS_DATABASE_ID;
 
+  // 개발용도
+  if (cache['root']) {
+    return res.status(200).json({
+      ...cache['root'],
+    });
+  }
+
   // parse Tags
   const tagsDatabase = await getDatabaseForTag(postsDatabaseId);
   const tags = (tagsDatabase.properties.tags as MultiSelectType).multi_select.options;
@@ -45,6 +60,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       description: value.properties.description['rich_text'][0]['plain_text'],
       createdTime: new Date(value.created_time).toLocaleDateString(),
     }));
+
+  // 🔥🐛 TODO-GYU: product - API 속도 개선 작업 필요
+  cache['root'] = {
+    tags,
+    posts,
+  };
 
   res.status(200).json({
     tags,

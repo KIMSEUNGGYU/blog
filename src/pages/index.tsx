@@ -19,6 +19,7 @@ export default function Index({ tags, posts }: Props) {
 }
 
 export async function getServerSideProps() {
+  // export async function getStaticProps() {
   const { tags, posts } = await request('/api/');
 
   return {
