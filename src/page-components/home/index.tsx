@@ -3,9 +3,8 @@ import { Tag, Post } from '@/types/index';
 import * as S from './styles';
 
 import Header from '@/components/Header';
-import TagsContainer from '@/src/containers/TagsContainer';
-import PostsContainer from '@/src/containers/PostsContainer';
-// import Posts from '@/components/Posts';
+import TagsContainer from '@/src/containers/Tags';
+import PostsContainer from '@/src/containers/Posts/';
 
 type Props = {
   tags: Tag[];

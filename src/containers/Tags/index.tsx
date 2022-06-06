@@ -1,12 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { Tag } from '../types';
+import { Tag } from '@/src/types';
 
-import { setSelectedTag } from 'src/modules/slice';
+import { setSelectedTag } from '@/src/modules/slice';
 
 import { RootState } from '@/src/modules/store';
 
-import Tags from '@/components/Tags';
+import Tags from '@/src/components/Tags';
 
 type Props = {
   tags: Tag[];

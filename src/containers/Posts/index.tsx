@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
 
-import { Post } from '../types';
+import { Post } from '../../types';
 
 import { RootState } from '@/src/modules/store';
 
 import { DEFAULT_SELECTED_TAG } from '@/src/constant';
 
-import Posts from '@/components/Posts';
+import Posts from '@/src/components/Posts';
 
 type Props = {
   posts: Post[];
