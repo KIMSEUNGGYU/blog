@@ -15,14 +15,14 @@ export default function Post({ recordMap, post }: any) {
 
 export const getServerSideProps: GetServerSideProps = async function (context) {
   const postId = context.query.id;
-  const post = context.query.post;
+  const post = context.query.post as string;
 
   const { recordMap } = await request(`api/posts/${postId}`);
 
   return {
     props: {
       recordMap,
-      post,
+      post: JSON.parse(post),
     },
   };
 };
