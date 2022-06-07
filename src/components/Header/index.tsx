@@ -11,12 +11,16 @@ export default function Header() {
   return (
     <S.Wrapper>
       <Link href="/" shallow={router.asPath === '/' ? true : false}>
-        <Image src="/logo.svg" alt="logo" width={180} height={41} />
+        <a>
+          <Image src="/logo.svg" alt="logo" width={180} height={41} />
+        </a>
       </Link>
       <nav>
         {/* TODO-GYU: delete - 임시로 tooltip(title) 기능, 후에 기능 개발 시 제거 */}
         <Link href="/" shallow={router.asPath === '/' ? true : false}>
-          <li className={router.asPath === '/' ? 'active' : ''}>블로그</li>
+          <a data-testid="blog">
+            <li className={router.asPath === '/' ? 'active' : ''}>블로그</li>
+          </a>
         </Link>
         <li className="todo" title="👨‍💻 Oops! 개발 중입니다">
           시리즈
