@@ -7,10 +7,4 @@ export const Wrapper = styled.div`
     margin-top: 0.5rem;
     color: rgba(0, 0, 0, 0.65);
   }
-
-  ul {
-    margin-top: 0.5rem;
-    color: #1890ff;
-    font-weight: bold;
-  }
 `;

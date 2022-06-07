@@ -1,5 +1,7 @@
 import { Post } from '@/types/index';
 
+import PostTags from '@/components/common/PostTags';
+
 import * as S from './styles';
 
 type Props = {
@@ -13,11 +15,7 @@ export default function PostInfo({ post }: Props) {
     <S.Wrapper>
       <h1>{title}</h1>
       <p>{createdTime}</p>
-      <ul>
-        {tags.map(({ id, name }) => (
-          <li key={id}>{`#${name}`}</li>
-        ))}
-      </ul>
+      <PostTags tags={tags} />
     </S.Wrapper>
   );
 }

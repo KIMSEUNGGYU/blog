@@ -15,5 +15,6 @@ export const NotionRenderGlobalStyle = styled.div`
     max-width: 100%;
     width: 100%;
     padding: 0;
+    margin-bottom: 5rem;
   }
 `;

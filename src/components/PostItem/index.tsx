@@ -1,8 +1,9 @@
 import Link from 'next/link';
 
-import { Post, Tag } from '@/types/index';
+import { Post } from '@/types/index';
 
 import * as S from './styles';
+import PostTags from '@/components/common/PostTags';
 
 type Props = {
   post: Post;
@@ -28,13 +29,7 @@ export default function PostItem({ post }: Props) {
             <span>{description}</span>
           </S.Description>
           <S.Footer>
-            <S.Tags>
-              {tags.map(({ id, name }: Tag) => (
-                <li key={`${id}`}>
-                  <p>{`#${name}`}</p>
-                </li>
-              ))}
-            </S.Tags>
+            <PostTags tags={tags} />
             <S.CreatedAt>{createdTime}</S.CreatedAt>
           </S.Footer>
         </a>
