@@ -46,12 +46,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
   }
 
+  const [tagsDatabase, postsDatabase] = await Promise.all([
+    getDatabaseForTag(postsDatabaseId),
+    getDatabaseForPosts(postsDatabaseId),
+  ]);
   // parse Tags
-  const tagsDatabase = await getDatabaseForTag(postsDatabaseId);
   const tags = (tagsDatabase.properties.tags as MultiSelectType).multi_select.options;
 
   // parse posts
-  const postsDatabase = await getDatabaseForPosts(postsDatabaseId);
   const posts = postsDatabase.results //
     .map((value: any) => ({
       id: value.id,
@@ -67,12 +69,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   };
 
   // 🔥🐛 TODO-GYU: product - API 속도 개선 작업 필요
+  // const [tagsDatabase, postsDatabase] = await Promise.all([
+  //   getDatabaseForTag(postsDatabaseId),
+  //   getDatabaseForPosts(postsDatabaseId),
+  // ]);
+
   // parse Tags
-  // const tagsDatabase = await getDatabaseForTag(postsDatabaseId);
   // const tags = (tagsDatabase.properties.tags as MultiSelectType).multi_select.options;
 
   // // parse posts
-  // const postsDatabase = await getDatabaseForPosts(postsDatabaseId);
   // const posts = postsDatabase.results //
   //   .map((value: any) => ({
   //     id: value.id,
