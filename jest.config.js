@@ -13,12 +13,10 @@ const customJestConfig = {
   ],
   moduleNameMapper: {
     // Handle module aliases (this will be automatically configured for you soon)
-    '^@/(.*)$': '<rootDir>/$1',
-
-    '^@/components/(.*)$': '<rootDir>/components/$1',
-    '^@/containers/(.*)$': '<rootDir>/containers/$1',
-
+    '^@/components/(.*)$': '<rootDir>/src/components/$1',
+    '^@/containers/(.*)$': '<rootDir>/src/containers/$1',
     '^@/pages/(.*)$': '<rootDir>/pages/$1',
+    '^@/(.*)$': '<rootDir>/$1',
   },
   testEnvironment: 'jest-environment-jsdom',
   collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/styles/*'], // coverage all file
