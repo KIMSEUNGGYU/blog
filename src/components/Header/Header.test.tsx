@@ -9,5 +9,6 @@ describe('Header', () => {
     expect(container.innerHTML).toContain('<img alt="logo"');
     expect(container).toHaveTextContent('블로그');
     expect(container).toHaveTextContent('시리즈');
+    expect(container).toHaveTextContent('나');
   });
 });
