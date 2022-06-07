@@ -12,12 +12,16 @@ import store from '@/src/modules/store';
 
 import global from '@/styles/global';
 
+import DefaultLayout from '../layouts';
+
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Global styles={global} />
       <Provider store={store}>
-        <Component {...pageProps} />
+        <DefaultLayout>
+          <Component {...pageProps} />
+        </DefaultLayout>
       </Provider>
     </>
   );
