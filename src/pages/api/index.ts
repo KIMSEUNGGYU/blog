@@ -39,34 +39,13 @@ const getDatabaseForTag = async (databaseId: string) => {
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const postsDatabaseId = HOME_POSTS_DATABASE_ID;
 
-  // // 개발용도
-  // if (cache['root']) {
-  //   return res.status(200).json({
-  //     ...cache['root'],
-  //   });
-  // }
+  // 개발용도
+  if (cache['root']) {
+    return res.status(200).json({
+      ...cache['root'],
+    });
+  }
 
-  // // parse Tags
-  // const tagsDatabase = await getDatabaseForTag(postsDatabaseId);
-  // const tags = (tagsDatabase.properties.tags as MultiSelectType).multi_select.options;
-
-  // // parse posts
-  // const postsDatabase = await getDatabaseForPosts(postsDatabaseId);
-  // const posts = postsDatabase.results //
-  //   .map((value: any) => ({
-  //     id: value.id,
-  //     title: value.properties.title.title[0]['plain_text'],
-  //     tags: value.properties.tags['multi_select'],
-  //     description: value.properties.description['rich_text'][0]['plain_text'],
-  //     createdTime: new Date(value.created_time).toLocaleDateString(),
-  //   }));
-
-  // cache['root'] = {
-  //   tags,
-  //   posts,
-  // };
-
-  // 🔥🐛 TODO-GYU: product - API 속도 개선 작업 필요
   // parse Tags
   const tagsDatabase = await getDatabaseForTag(postsDatabaseId);
   const tags = (tagsDatabase.properties.tags as MultiSelectType).multi_select.options;
@@ -81,6 +60,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       description: value.properties.description['rich_text'][0]['plain_text'],
       createdTime: new Date(value.created_time).toLocaleDateString(),
     }));
+
+  cache['root'] = {
+    tags,
+    posts,
+  };
+
+  // 🔥🐛 TODO-GYU: product - API 속도 개선 작업 필요
+  // parse Tags
+  // const tagsDatabase = await getDatabaseForTag(postsDatabaseId);
+  // const tags = (tagsDatabase.properties.tags as MultiSelectType).multi_select.options;
+
+  // // parse posts
+  // const postsDatabase = await getDatabaseForPosts(postsDatabaseId);
+  // const posts = postsDatabase.results //
+  //   .map((value: any) => ({
+  //     id: value.id,
+  //     title: value.properties.title.title[0]['plain_text'],
+  //     tags: value.properties.tags['multi_select'],
+  //     description: value.properties.description['rich_text'][0]['plain_text'],
+  //     createdTime: new Date(value.created_time).toLocaleDateString(),
+  //   }));
 
   res.status(200).json({
     tags,
