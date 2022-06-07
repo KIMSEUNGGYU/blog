@@ -10,7 +10,8 @@ import { ExtendedRecordMap } from 'notion-types';
 import * as S from './style';
 
 type Props = {
-  recordMap: ExtendedRecordMap;
+  // 테스트 때문에 any 타입 추가???
+  recordMap: ExtendedRecordMap | any;
 };
 
 export default function Post({ recordMap }: Props) {
