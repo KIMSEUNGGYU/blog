@@ -16,4 +16,7 @@ export const Wrapper = styled.header`
     margin-left: 1rem;
     font-size: 2rem;
   }
+  li:hover {
+    cursor: pointer;
+  }
 `;
