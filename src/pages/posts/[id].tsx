@@ -1,8 +1,8 @@
-import { GetServerSideProps } from 'next';
-
-import request from '@/src/api';
-
 import PostPage from '@/page-components/post';
+
+import { HOME_POSTS_DATABASE_ID } from 'src/constant';
+
+import { getPosts, getDetailPost } from '@/src/apis';
 
 export default function Post({ recordMap, post }: any) {
   return (
@@ -13,10 +13,23 @@ export default function Post({ recordMap, post }: any) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async function (context) {
-  const postId = context.query.id;
+// 빌드될 때 실행
+export const getStaticPaths = async () => {
+  const postsDatabaseId = HOME_POSTS_DATABASE_ID;
 
-  const { recordMap, post } = await request(`api/posts/${postId}`);
+  const posts = await getPosts(postsDatabaseId);
+
+  const paths = posts.map((post) => ({
+    params: { id: post.id },
+  }));
+
+  return { paths, fallback: false };
+};
+
+export async function getStaticProps({ params }: any) {
+  const postId = params.id;
+
+  const { recordMap, post } = await getDetailPost(postId);
 
   return {
     props: {
@@ -24,4 +37,4 @@ export const getServerSideProps: GetServerSideProps = async function (context) {
       post,
     },
   };
-};
+}

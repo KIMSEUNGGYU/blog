@@ -2,7 +2,9 @@ import { Tag, Post } from '@/types/index';
 
 import HomePage from '@/page-components/home';
 
-import request from 'src/api';
+import { HOME_POSTS_DATABASE_ID } from 'src/constant';
+
+import { getPostsAndTags } from '@/src/apis/index';
 
 type Props = {
   tags: Tag[];
@@ -18,9 +20,10 @@ export default function Index({ tags, posts }: Props) {
   );
 }
 
-export async function getServerSideProps() {
-  // export async function getStaticProps() {
-  const { tags, posts } = await request('/api/');
+export async function getStaticProps() {
+  const postsDatabaseId = HOME_POSTS_DATABASE_ID;
+
+  const { tags, posts } = await getPostsAndTags(postsDatabaseId);
 
   return {
     props: {
