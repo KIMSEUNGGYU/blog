@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Post } from '@/types/index';
 
 import * as S from './styles';
+
 import PostTags from '@/components/common/PostTags';
 
 type Props = {

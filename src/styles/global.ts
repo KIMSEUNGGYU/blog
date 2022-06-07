@@ -30,7 +30,6 @@ const global = css`
     margin: 0;
   }
   a {
-    cursor: text;
     text-decoration: none;
     color: black;
   }

@@ -2,12 +2,15 @@ import { NotionRenderer } from 'react-notion-x';
 
 import Image from 'next/image';
 import Link from 'next/link';
+
 import { Code } from 'react-notion-x/build/third-party/code';
+
+import { ExtendedRecordMap } from 'notion-types';
 
 import * as S from './style';
 
 type Props = {
-  recordMap: any;
+  recordMap: ExtendedRecordMap;
 };
 
 export default function Post({ recordMap }: Props) {
