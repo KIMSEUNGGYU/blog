@@ -1,4 +1,4 @@
-import { getDatabaseQuery, getDatabaseRetrieve, getPageRetrieve } from './notion';
+import { getDatabaseItem, getDatabase, getPage } from './notion';
 
 import { Post, MultiSelectType } from '@/types/index';
 
@@ -6,7 +6,7 @@ import { NotionAPI } from 'notion-client';
 const api = new NotionAPI();
 
 export async function getDetailPost(postId: string) {
-  const [recordMap, postPage]: any = await Promise.all([api.getPage(postId), await getPageRetrieve(postId)]);
+  const [recordMap, postPage]: any = await Promise.all([api.getPage(postId), await getPage(postId)]);
 
   const post: Post = {
     id: postPage.id,
@@ -24,8 +24,8 @@ export async function getDetailPost(postId: string) {
 
 export async function getPostsAndTags(postsDataId: string) {
   const [tagsDatabase, postsDatabase]: any = await Promise.all([
-    getDatabaseRetrieve(postsDataId),
-    getDatabaseQuery({
+    getDatabase(postsDataId),
+    getDatabaseItem({
       database_id: postsDataId,
       sorts: [
         {
@@ -56,7 +56,7 @@ export async function getPostsAndTags(postsDataId: string) {
 }
 
 export async function getPosts(rootPostId: string) {
-  const postsDatabase = await getDatabaseQuery({
+  const postsDatabase = await getDatabaseItem({
     database_id: rootPostId,
     sorts: [
       {

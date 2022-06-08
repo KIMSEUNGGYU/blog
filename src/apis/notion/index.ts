@@ -1,34 +1,29 @@
-import { Client } from '@notionhq/client';
 import { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoints';
+
+import notion from './client';
 
 type WithAuth<P> = P & {
   auth?: string;
 };
 
-const notion = new Client({
-  auth: process.env.NOTION_TOKEN,
-});
+export const getDatabaseItem = async (args: WithAuth<QueryDatabaseParameters>) => {
+  const database = await notion.databases.query(args);
 
-// posts 요청때 사용
-export const getDatabaseQuery = async (args: WithAuth<QueryDatabaseParameters>) => {
-  const postsDatabase = await notion.databases.query(args);
-
-  return postsDatabase;
+  return database;
 };
 
-// tagss 요청때 사용
-export const getDatabaseRetrieve = async (databaseId: string) => {
-  const tagsDatabase = await notion.databases.retrieve({
+export const getDatabase = async (databaseId: string) => {
+  const database = await notion.databases.retrieve({
     database_id: databaseId,
   });
 
-  return tagsDatabase;
+  return database;
 };
 
-export const getPageRetrieve = async (pageId: string) => {
-  const postPage = await notion.pages.retrieve({
+export const getPage = async (pageId: string) => {
+  const page = await notion.pages.retrieve({
     page_id: pageId,
   });
 
-  return postPage;
+  return page;
 };
