@@ -19,7 +19,8 @@ const customJestConfig = {
     '^@/(.*)$': '<rootDir>/$1',
   },
   testEnvironment: 'jest-environment-jsdom',
-  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/styles/*'], // coverage all file
+  // ❓ THINK-GYU:  SSR 부분을 테스트해야하는지?, page 컴포넌트에서 E2E 테스트를 jest 로 할지 cypress 로 할지.. 고민
+  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/styles/*', '!src/pages/**/*'], // coverage all file
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
