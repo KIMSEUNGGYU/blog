@@ -1,0 +1,52 @@
+name: Client CI/CD
+
+on:
+  push:
+    branches: [G-16]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+        # Github Repository Secrets를 통해 환경 변수 파일을 생성합니다.
+      - name: Generate Environment Variables
+        run: |
+          echo "NOTION_TOKEN=$NOTION_TOKEN" >> .env.development
+          echo "HOME_POSTS_DATABASE_ID=$DEV_HOME_POSTS_DATABASE_ID" >> .env.development
+          echo "NOTION_TOKEN=$NOTION_TOKEN" >> .env.production
+          echo "HOME_POSTS_DATABASE_ID=$PROD_HOME_POSTS_DATABASE_ID" >> .env.production
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          DEV_HOME_POSTS_DATABASE_ID: ${{ secrets.DEV_HOME_POSTS_DATABASE_ID }}
+          PROD_HOME_POSTS_DATABASE_ID: ${{ secrets.PROD_HOME_POSTS_DATABASE_ID }}
+      - name: Install 🐱‍🏍
+        run: npm ci
+      # - name: Lint ✨
+      #   run: npm run lint
+      # - name: Test Unit 🔥
+      #   run: npm run test:unit
+      # - name: Test E2E 👨‍💻
+      #   run: npm run test:e2e
+      - name: Build ☕
+        run: npm run build
+      - name: Deploy 🚀
+        uses:  amondnet/vercel-action@v20
+        with:
+          # vercel-cli: vercel # optional ("vercel" or "now")
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
+          # github-token: ${{ secrets.GITHUB_TOKEN }} #Optional
+          # vercel-args: '--prod' #Optional
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }} #Required
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }} #Required
+          # working-directory: ./sub-directory

@@ -7,9 +7,11 @@
     "build:dev": "env-cmd -f ./.env.development next build",
     "start": "next start",
     "test": "jest --watch",
+    "test:unit": "jest",
+    "test:e2e": "npm run build:dev && start-server-and-test http://localhost:3000 cy:run",
     "watch": "jest --watchAll",
     "coverage": "jest --coverage",
-    "ci": "jest && start-server-and-test http://localhost:3000 cy:run"
+    "cy:run": "cypress run"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
