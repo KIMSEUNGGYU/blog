@@ -1,7 +1,6 @@
 import { defineConfig } from 'cypress';
 
 export default defineConfig({
-  fixturesFolder: false,
   defaultCommandTimeout: 1000,
   e2e: {
     baseUrl: 'http://localhost:3000/',
