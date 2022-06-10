@@ -42,3 +42,6 @@ yarn-error.log*
 # log.txt 개발하면서 필요한 정보 작성하는 파일
 log.js
 log.txt
+
+cypress/e2e/1-*
+cypress/e2e/2-*
