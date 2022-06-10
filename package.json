@@ -9,7 +9,8 @@
     "test": "jest --watch",
     "watch": "jest --watchAll",
     "coverage": "jest --coverage",
-    "test:ci": "jest --ci"
+    "test:ci": "jest --ci",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
@@ -32,6 +33,7 @@
     "@testing-library/user-event": "13.5.0",
     "@types/react": "17.0.38",
     "babel-jest": "27.4.5",
+    "cypress": "^10.0.3",
     "eslint": "8.5.0",
     "eslint-config-next": "latest",
     "eslint-plugin-testing-library": "5.0.1",
