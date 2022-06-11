@@ -20,7 +20,7 @@ export default function Post({ recordMap }: Props) {
       <NotionRenderer
         recordMap={recordMap}
         fullPage={false}
-        darkMode={false}
+        darkMode={true}
         components={{
           Code,
           nextImage: Image,

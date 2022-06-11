@@ -9,7 +9,7 @@ export const Tags = styled.ul`
   }
 
   p {
-    color: #1890ff;
-    font-weight: bold;
+    color: ${({ theme }) => theme.color.brand};
+    font-weight: 600;
   }
 `;
