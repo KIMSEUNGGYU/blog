@@ -2,15 +2,15 @@ import styled from '@emotion/styled';
 
 export const PostItem = styled.li`
   list-style: none;
-  background-color: ${({ theme }) => theme.background.second};
-  margin-bottom: 1rem;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 5px;
-  padding: 1rem;
   cursor: pointer;
   font-weight: bold;
+  background-color: ${({ theme }) => theme.background.second};
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 2px solid ${({ theme }) => theme.background.third};
   &:hover {
-    border: 1px solid #1890ff;
+    border: 2px solid ${({ theme }) => theme.color.hover};
   }
   & div {
     position: relative;

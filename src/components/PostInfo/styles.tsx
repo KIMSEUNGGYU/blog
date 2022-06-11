@@ -5,6 +5,6 @@ export const Wrapper = styled.div`
 
   & > p {
     margin-top: 0.5rem;
-    color: rgba(0, 0, 0, 0.65);
+    font-weight: 600;
   }
 `;
