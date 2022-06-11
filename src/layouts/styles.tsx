@@ -1,17 +1,20 @@
 import styled from '@emotion/styled';
 
-const Container = styled.div`
+export const Container = styled.div`
   width: 80%;
   max-width: 980px;
   margin: 0 auto;
 `;
 
-const Divider = styled.hr`
+export const Divider = styled.hr`
   width: 100%;
   position: absolute;
   left: 0;
-  color: rgba(0, 0, 0, 0.15);
+  border-color: ${({ theme }) => theme.color.border};
+  background-color: ${({ theme }) => theme.color.border};
   margin: 0;
 `;
 
-export { Container, Divider };
+export const Main = styled.main`
+  margin-top: 5rem;
+`;

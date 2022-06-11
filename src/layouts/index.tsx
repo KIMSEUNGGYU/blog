@@ -11,7 +11,7 @@ export default function DefaultLayout({ children }: LayoutProps) {
     <S.Container>
       <Header />
       <S.Divider />
-      {children}
+      <S.Main>{children}</S.Main>
     </S.Container>
   );
 }
