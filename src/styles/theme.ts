@@ -1,8 +1,12 @@
 const dark = {
   background: {
+    zero: '#000000',
     first: '#191919',
     second: '#262626',
     third: '#333333',
+    fourth: '#404040',
+    fifth: '#4d4d4d',
+    sixth: '#595959',
   },
   color: {
     brand: '#177ddc',
