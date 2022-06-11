@@ -14,6 +14,8 @@ const dark = {
     hover: '#1866af',
     active: '#3c9be8',
 
+    notion: 'rgba(255, 255, 255, 0.81)',
+
     // Neutral - text
     title: 'rgba(255, 255, 255, 0.85)',
     primary: 'rgba(255, 255, 255, 0.85)',
