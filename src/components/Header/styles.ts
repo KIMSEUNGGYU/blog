@@ -18,18 +18,15 @@ export const Wrapper = styled.header`
   }
   li:hover {
     cursor: pointer;
-    color: #40a9ff;
-  }
-  li:active {
-    color: #096dd9;
+    color: ${({ theme }) => theme.color.hover};
   }
   li.active {
-    color: #096dd9;
+    color: ${({ theme }) => theme.color.active};
   }
 
   /* TODO-GYU: DELETE - 기능 개발 전까지 임시 스타일 */
   li.todo {
     cursor: text;
-    color: black;
+    color: ${({ theme }) => theme.color.disable};
   }
 `;
