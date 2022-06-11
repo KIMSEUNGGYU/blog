@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render } from '@/src/test-utils/test-utils';
 
 import POSTS from '@/fixture/posts';
 

@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent } from '@/src/test-utils/test-utils';
 
 import { NextRouter } from 'next/router';
 

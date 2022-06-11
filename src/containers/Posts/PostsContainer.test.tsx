@@ -1,6 +1,6 @@
 import * as redux from 'react-redux';
 
-import { render } from '@testing-library/react';
+import { render } from '@/src/test-utils/test-utils';
 
 import given from 'given2';
 
