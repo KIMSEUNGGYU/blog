@@ -37,6 +37,17 @@ const GlobalStyle = () => {
       text-decoration: none;
       color: inherit;
     }
+
+    // 스크롤바 전체
+    ::-webkit-scrollbar {
+      width: 10px;
+      background-color: ${theme.background.second};
+    }
+    // 스크롤 막대
+    ::-webkit-scrollbar-thumb {
+      border-radius: 3px;
+      background-color: ${theme.color.border};
+    }
   `;
 
   return <Global styles={global} />;
