@@ -41,6 +41,7 @@ export async function getPostsAndTags(postsDataId: string) {
 
   // parse posts
   const posts = postsDatabase.results //
+    .filter((value: any) => value.properties.title.title.length && value.properties.description['rich_text'].length) // 게시물이 있는 경우
     .map((value: any) => ({
       id: value.id,
       title: value.properties.title.title[0]['plain_text'],
@@ -68,6 +69,7 @@ export async function getPosts(rootPostId: string) {
 
   // parse posts
   const posts = postsDatabase.results //
+    .filter((value: any) => value.properties.title.title.length && value.properties.description['rich_text'].length) // 게시물이 있는 경우
     .map((value: any) => ({
       id: value.id,
       title: value.properties.title.title[0]['plain_text'],

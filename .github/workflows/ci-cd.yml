@@ -1,17 +1,17 @@
 name: Client CI/CD
 
 on:
-  push:
-    branches: [G-16]
-
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
 jobs:
-  build:
+  ci-cd:
     runs-on: ubuntu-20.04
-
     strategy:
       matrix:
         node-version: [16.x]
-
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -32,21 +32,18 @@ jobs:
           PROD_HOME_POSTS_DATABASE_ID: ${{ secrets.PROD_HOME_POSTS_DATABASE_ID }}
       - name: Install 🐱‍🏍
         run: npm ci
-      # - name: Lint ✨
-      #   run: npm run lint
-      # - name: Test Unit 🔥
-      #   run: npm run test:unit
-      # - name: Test E2E 👨‍💻
-      #   run: npm run test:e2e
+      - name: Lint ✨
+        run: npm run lint
+      - name: Test Unit 🔥
+        run: npm run test:unit
+      - name: Test E2E 👨‍💻
+        run: npm run test:e2e
       - name: Build ☕
         run: npm run build
       - name: Deploy 🚀
         uses:  amondnet/vercel-action@v20
         with:
-          # vercel-cli: vercel # optional ("vercel" or "now")
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
-          # github-token: ${{ secrets.GITHUB_TOKEN }} #Optional
-          # vercel-args: '--prod' #Optional
+          vercel-args: '--prod' #Optional
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }} #Required
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }} #Required
-          # working-directory: ./sub-directory
