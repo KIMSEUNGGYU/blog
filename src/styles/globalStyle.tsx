@@ -19,6 +19,7 @@ const GlobalStyle = () => {
 
       @media screen and (max-width: ${theme.size.tablet}) {
         font-size: 0.8rem;
+        overflow-x: hidden;
         h1 {
           font-size: 1.5rem;
         }
