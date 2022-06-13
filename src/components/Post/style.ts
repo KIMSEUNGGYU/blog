@@ -11,6 +11,10 @@ export const NotionRenderGlobalStyle = styled.div`
 
     font-size: 1.2rem;
     color: ${({ theme }) => theme.color.notion};
+
+    @media screen and (max-width: ${({ theme }) => theme.size.tablet}) {
+      font-size: 1rem;
+    }
   }
 
   ul,

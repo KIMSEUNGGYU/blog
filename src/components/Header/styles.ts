@@ -4,7 +4,13 @@ export const Wrapper = styled.header`
   width: 100%;
   margin: 1rem 0;
   display: flex;
+  position: relative;
   justify-content: space-between;
+
+  .hamburger {
+    display: none;
+  }
+
   img:hover {
     cursor: pointer;
   }
@@ -28,5 +34,28 @@ export const Wrapper = styled.header`
   li.todo {
     cursor: text;
     color: ${({ theme }) => theme.color.disable};
+  }
+
+  /* TODO-hamburger */
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    .hamburger {
+      display: block;
+      font-size: 36px;
+      position: absolute;
+      right: 0px;
+    }
+    nav {
+      display: none;
+      align-items: flex-end;
+      flex-direction: column;
+    }
+    nav.active {
+      display: flex;
+    }
+    li {
+      padding: 8px 0;
+      font-size: 1.5rem;
+    }
   }
 `;

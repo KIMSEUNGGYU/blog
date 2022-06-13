@@ -16,6 +16,13 @@ const GlobalStyle = () => {
       background: ${theme.background.first};
       box-sizing: border-box;
       color: ${theme.color.primary};
+
+      @media screen and (max-width: ${theme.size.tablet}) {
+        font-size: 0.8rem;
+        h1 {
+          font-size: 1.5rem;
+        }
+      }
     }
     ul,
     ol {

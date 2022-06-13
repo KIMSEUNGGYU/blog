@@ -26,6 +26,9 @@ const dark = {
     // background: 'rgba(255, 255, 255, 0.08)',
     tableHeader: 'rgba(255, 255, 255, 0.04)',
   },
+  size: {
+    tablet: `${768 - 1}px`,
+  },
 };
 
 export type ThemeType = typeof dark;
