@@ -1,11 +1,7 @@
 name: DEVELOP CI/CD
 
 on:
-  pull_request:
-    branches:
-      - develop
-    types:
-      - closed
+  # hotfix and PR merge
   push:
     branches:
       - develop
