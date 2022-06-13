@@ -37,7 +37,7 @@ export default function Header() {
       <div className="hamburger" onClick={changeToggle}>
         <Image
           src={toggle ? '/close.svg' : '/menu.svg'} //
-          alt="menu"
+          alt={toggle ? 'close' : 'menu'}
           width={30}
           height={41}
         />
