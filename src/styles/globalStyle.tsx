@@ -19,7 +19,6 @@ const GlobalStyle = () => {
 
       @media screen and (max-width: ${theme.size.tablet}) {
         font-size: 0.8rem;
-        overflow-x: hidden;
         h1 {
           font-size: 1.5rem;
         }
@@ -48,7 +47,8 @@ const GlobalStyle = () => {
 
     // 스크롤바 전체
     ::-webkit-scrollbar {
-      width: 10px;
+      width: 6px;
+      height: 3px;
       background-color: ${theme.background.second};
     }
     // 스크롤 막대

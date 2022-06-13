@@ -14,11 +14,16 @@ export const NotionRenderGlobalStyle = styled.div`
 
     @media screen and (max-width: ${({ theme }) => theme.size.tablet}) {
       font-size: 1rem;
+
+      .notion-code {
+        overflow-y: hidden;
+      }
     }
   }
 
   ul,
   ol {
+    width: 100%;
     li + ul,
     li + ol {
       padding-left: 0;
