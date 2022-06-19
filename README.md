@@ -1,29 +1,27 @@
-# blog
-블로그@v2 - notion api 를 활용하여 블로그 만들기
+# blog (seunggyu)
+- 본인을 나타낸다고 생각하여 좋은 컨텐츠를 제공하고자 합니다.  
+- 학습 및 공유하고 싶은 주제를 전달하기 위한 개인 기술 블로그 입니다.
+- 직접 운영 및 관리하면서 성장하고자 하며 꾸준하게 개발/리팩토링 하고자 합니다.
+- [사이트 접속](https://kimseunggyu.vercel.app/)
 
-## 사용 기술
-### 백엔드
-- FE 개발에 집중하고 싶어, 많이 사용해 본 express 를 사용할 생각이고 후에 사람들이 쉽게 커스텀하기 위한 용도로 express 사용  
-  nest.js 도 사용해봤지만 express 가 편하고 다른 분들이 커스텀하기 좋은게 express 같음 (nest.js 는 러닝커브 있다고 판단)
+## 👨‍💻 Skills
+<p align='center'>
+  <img src="https://img.shields.io/badge/Typescript-v4.5.4-blue?logo=typescript"/>
+  <img src="https://img.shields.io/badge/React-v17.0.2-blue?logo=React"/>
+  <img src="https://img.shields.io/badge/nextjs-latest-white?logo=Next.js"/>
+  <img src="https://img.shields.io/badge/emotion-v11.9.0-pink?logo=styled-components">
+  <img src="https://img.shields.io/badge/Jest-v27.4.5-C21325?logo=Jest"/>
+  <img src="https://img.shields.io/badge/Testing Library-v12.1.2-E33332?logo=Testing Library"/>
+  <img src="https://img.shields.io/badge/Cypress-v10.0.3-17202C?logo=Cypress"/>
+  <img src="https://img.shields.io/badge/vercel-%20-white?logo=Vercel"/>
+  <img src="https://img.shields.io/badge/GitHub Actions-%20-2088FF?logo=GitHub Actions"/>
+</p>
 
-- `express`
-- `monogodb`, `mongoose` 
-- `javascript`
-- `jest` 및 `unit-test`, `integration test` 
+## DEMO
+[![DEMO](https://user-images.githubusercontent.com/45627868/174495446-72a220fa-2fcc-4c67-812a-a40be10fa94f.png)](https://youtu.be/a07aelw85m0)
 
-- SQL 과 NOSQL DB 에 대해서 고민했지만, 프로젝트 구상으로 frontend 는 notion-api 가 제공하는 데이터를 기반으로 서비스 할 예정  
-=> 즉, Client 는 개인 백엔드 서버와 notion-api 로 응답 모두 커버 가능하게 할 생각  
-=> 그렇다면 backend 에 notion-api 가 넘겨준 데이터를 그대로 저장시킬 예정   
-=> 이때 용이한게 NOSQL 구조가 적합하다고 판단
-- 백엔드를 만든 이유가 notion-api 로 요청한 데이터의 응답이 느려(1~3s) 속도 개선을 위해 개인 backend 및 DB 를 구축하여 처리할 예정
+## Architecture
+![Architecture](https://user-images.githubusercontent.com/45627868/174496386-3a1497f5-8347-48b9-a467-d40efecc90f4.png)
 
-### 프론트엔드
-- `react` or `nextjs`
-- `javascript` or `typescript`
-- `emotion.js` or `styled-component` / `antd`??
-- `notion-render-x` 
-- `jest`, `react-testing-library`(unit-test, integration-test), `cypress`(e2e)
-
-### 향후
-- 우선 최대한 빨리 간단하게 만들 예정으로 javascript 로 구현할 생각!?  
-  단, test 코드는 작성하고자 함.(평소에 test 코드를 좋아하기도하고 향후 리팩토링도 생각하고 있기에 관리 용이하기 위함)
+## History
+- [**v1**](https://github.com/KIMSEUNGGYU/seunggyu)
