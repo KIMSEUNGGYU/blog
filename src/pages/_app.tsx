@@ -36,6 +36,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
               name: 'naver-site-verification',
               content: '496484a3821dff90ab9dc2cdc616de03e8552300',
             },
+            {
+              name: 'google-site-verification',
+              content: 'uQqvUZFzeArbL2J0vv77QKVE-_OKLeZoAiLb65buj_E',
+            },
           ]}
         />
         <Provider store={store}>

@@ -11,7 +11,7 @@ const config: DefaultSeoProps = {
     site_name: '김승규 블로그',
     images: [
       {
-        url: '/logo.svg',
+        url: 'https://kimseunggyu.vercel.app/logo.svg',
         width: 800,
         height: 600,
         alt: 'Logo',
