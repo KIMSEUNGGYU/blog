@@ -2,11 +2,13 @@ import 'react-notion-x/src/styles.css';
 import 'prismjs/themes/prism-tomorrow.css';
 import 'katex/dist/katex.min.css';
 
+import { useEffect } from 'react';
+
 import type { AppProps } from 'next/app';
-
 import Script from 'next/script';
+import { useRouter } from 'next/router';
 
-import { DefaultSeo, NextSeo } from 'next-seo';
+import { DefaultSeo } from 'next-seo';
 
 import SEO from '../next-seo.config';
 
@@ -21,44 +23,47 @@ import dark from '@/styles/theme';
 
 import DefaultLayout from '../layouts';
 
+import * as gtag from '../libs/gtag';
+
 export default function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url: string) => gtag.pageview(url);
+
+    router.events.on('routeChangeComplete', handleRouteChange);
+    router.events.on('hashChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+      router.events.off('hashChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <>
       <ThemeProvider theme={dark}>
         <GlobalStyle />
         <DefaultSeo {...SEO} />
-        {/* TODO-GYU: NextSEo 에러, 후에 수정되면 DefaultSEO로 변경 */}
-        <NextSeo
-          additionalMetaTags={[
-            {
-              name: 'viewport',
-              content: 'width=device-width, initial-scale=1, maximum-scale=1 user-scalable=no',
-            },
-            {
-              name: 'naver-site-verification',
-              content: '496484a3821dff90ab9dc2cdc616de03e8552300',
-            },
-            {
-              name: 'google-site-verification',
-              content: 'uQqvUZFzeArbL2J0vv77QKVE-_OKLeZoAiLb65buj_E',
-            },
-          ]}
-        />
-        {/* TODO-GYU: Script 태그(GA 스크립트 - document.tsx로 이동) */}
         {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-G7QHB7RX9W" //
-          strategy="afterInteractive"
+          strategy="afterInteractive" //
+          src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
         />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-          
-            gtag('config', 'G-G7QHB7RX9W');
-          `}
-        </Script>
+
+            gtag('config', '${gtag.GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+          }}
+        />
         <Provider store={store}>
           <DefaultLayout>
             <Component {...pageProps} />
