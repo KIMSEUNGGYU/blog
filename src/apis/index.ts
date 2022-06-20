@@ -3,7 +3,7 @@ import { getDatabaseItem, getDatabase, getPage } from './notion';
 import { Post, MultiSelectType } from '@/types/index';
 
 import { NotionAPI } from 'notion-client';
-const api = new NotionAPI();
+export const api = new NotionAPI();
 
 export async function getDetailPost(postId: string) {
   const [recordMap, postPage]: any = await Promise.all([api.getPage(postId), await getPage(postId)]);

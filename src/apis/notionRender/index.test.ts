@@ -2,6 +2,8 @@ import api from './client';
 
 import { getPage } from './index';
 
+jest.mock('notion-client');
+
 describe('notion-client', () => {
   const mockFetch = (data: any) => {
     api.getPage = jest.fn().mockResolvedValue(data);
@@ -13,8 +15,8 @@ describe('notion-client', () => {
     });
 
     it('database 를 반환한다.', async () => {
-      // const result = await getPage('pageId');
-      // expect(result).toEqual([]);
+      const result = await getPage('pageId');
+      expect(result).toEqual([]);
     });
   });
 });
