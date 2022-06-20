@@ -32,6 +32,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
               name: 'viewport',
               content: 'width=device-width, initial-scale=1, maximum-scale=1 user-scalable=no',
             },
+            {
+              name: 'naver-site-verification',
+              content: '496484a3821dff90ab9dc2cdc616de03e8552300',
+            },
           ]}
         />
         <Provider store={store}>
