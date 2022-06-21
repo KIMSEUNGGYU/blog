@@ -1,45 +1,3 @@
-// const DATABASE = {
-//   object: 'database',
-//   id: 'c252d515-bdd1-402f-b7a6-9ba5961eb569',
-//   cover: null,
-//   icon: null,
-//   created_time: '2022-03-12T05:53:00.000Z',
-//   created_by: { object: 'user', id: 'e0e17767-cc00-45ca-9fee-4fafb2becdd7' },
-//   last_edited_by: { object: 'user', id: 'e0e17767-cc00-45ca-9fee-4fafb2becdd7' },
-//   last_edited_time: '2022-06-19T18:24:00.000Z',
-//   title: [
-//     {
-//       type: 'text',
-//       text: [Object],
-//       annotations: [Object],
-//       plain_text: '개발용',
-//       href: null,
-//     },
-//   ],
-//   description: [],
-//   is_inline: true,
-//   properties: {
-//     description: {
-//       id: 'JNoX',
-//       name: 'description',
-//       type: 'rich_text',
-//       rich_text: {},
-//     },
-//     tags: {
-//       id: '%60cnM',
-//       name: 'tags',
-//       type: 'multi_select',
-//       multi_select: [Object],
-//     },
-//     title: { id: 'title', name: 'title', type: 'title', title: {} },
-//   },
-//   parent: { type: 'page_id', page_id: '21c1eaee-53fa-41a6-a689-93e626561ef2' },
-//   url: 'https://www.notion.so/c252d515bdd1402fb7a69ba5961eb569',
-//   archived: false,
-// };
-
-// export default DATABASE;
-
 const DATABASE = {
   object: 'database',
   id: 'bc1211ca-e3f1-4939-ae34-5260b16f627c',
@@ -80,7 +38,9 @@ const DATABASE = {
       id: '%60cnM',
       name: 'tags',
       type: 'multi_select',
-      multi_select: [Object],
+      multi_select: {
+        options: [],
+      },
     },
   },
   parent: {
