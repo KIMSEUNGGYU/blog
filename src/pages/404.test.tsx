@@ -6,7 +6,7 @@ import { NextRouter } from 'next/router';
 
 import { createMockRouter } from '@/src/test-utils/createMockRouter';
 
-import NotFoundPage from './404';
+import NotFoundPage from './404.page';
 
 describe('404 Page', () => {
   function renderComponent(router: NextRouter) {
