@@ -1,5 +1,5 @@
 import { NotionAPI } from 'notion-client';
 
-const notionRendererClient = new NotionAPI();
+const notionApi = new NotionAPI();
 
-export default notionRendererClient;
+export default notionApi;
