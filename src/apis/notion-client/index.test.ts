@@ -2,11 +2,13 @@ import notion from './client';
 
 import { getDatabase, getDatabaseItem, getPage } from './index';
 
+jest.mock('@notionhq/client');
+
 describe('@notion/client', () => {
   const mockFetch = (data: any) => {
-    notion.databases.retrieve = jest.fn().mockResolvedValue(data);
-    notion.databases.query = jest.fn().mockResolvedValue(data);
-    notion.pages.retrieve = jest.fn().mockResolvedValue(data);
+    (notion.databases.retrieve as jest.Mock).mockResolvedValue(data);
+    (notion.databases.query as jest.Mock).mockResolvedValue(data);
+    (notion.pages.retrieve as jest.Mock).mockResolvedValue(data);
   };
 
   describe('getDatabase', () => {
@@ -47,3 +49,4 @@ describe('@notion/client', () => {
     });
   });
 });
+//
