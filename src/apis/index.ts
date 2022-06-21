@@ -1,12 +1,10 @@
-import { getDatabaseItem, getDatabase, getPage } from './notion';
+import * as notionClient from './notion-client';
+import notionApi from './notion-api/client';
 
 import { Post, MultiSelectType } from '@/types/index';
 
-import { NotionAPI } from 'notion-client';
-const api = new NotionAPI();
-
 export async function getDetailPost(postId: string) {
-  const [recordMap, postPage]: any = await Promise.all([api.getPage(postId), await getPage(postId)]);
+  const [recordMap, postPage]: any = await Promise.all([notionApi.getPage(postId), notionClient.getPage(postId)]);
 
   const post: Post = {
     id: postPage.id,
@@ -24,8 +22,8 @@ export async function getDetailPost(postId: string) {
 
 export async function getPostsAndTags(postsDataId: string) {
   const [tagsDatabase, postsDatabase]: any = await Promise.all([
-    getDatabase(postsDataId),
-    getDatabaseItem({
+    notionClient.getDatabase(postsDataId),
+    notionClient.getDatabaseItem({
       database_id: postsDataId,
       sorts: [
         {
@@ -35,6 +33,9 @@ export async function getPostsAndTags(postsDataId: string) {
       ],
     }),
   ]);
+
+  // THINK-GYU
+  // 복잡한 데이터 형태인 경우 api response 형태를 어떻게 mock 해야하는지??
 
   // parse Tags
   const tags = (tagsDatabase.properties.tags as MultiSelectType).multi_select.options;
@@ -57,7 +58,7 @@ export async function getPostsAndTags(postsDataId: string) {
 }
 
 export async function getPosts(rootPostId: string) {
-  const postsDatabase = await getDatabaseItem({
+  const postsDatabase = await notionClient.getDatabaseItem({
     database_id: rootPostId,
     sorts: [
       {

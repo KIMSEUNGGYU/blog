@@ -47,7 +47,8 @@ const GlobalStyle = () => {
 
     // 스크롤바 전체
     ::-webkit-scrollbar {
-      width: 10px;
+      width: 6px;
+      height: 3px;
       background-color: ${theme.background.second};
     }
     // 스크롤 막대

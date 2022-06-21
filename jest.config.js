@@ -24,5 +24,7 @@ const customJestConfig = {
   collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/styles/*', '!src/pages/**/*', '!src/types/**/*'], // coverage all file
 };
 
-// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
-module.exports = createJestConfig(customJestConfig);
+module.exports = async () => ({
+  ...(await createJestConfig(customJestConfig)()),
+  transformIgnorePatterns: ['node_modules/(?!(notion-client)/)'],
+});
