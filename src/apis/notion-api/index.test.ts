@@ -1,4 +1,4 @@
-import api from './client';
+import notionApi from './client';
 
 import { getPage } from './index';
 
@@ -6,7 +6,7 @@ jest.mock('notion-client');
 
 describe('notion-client', () => {
   const mockFetch = (data: any) => {
-    api.getPage = jest.fn().mockResolvedValue(data);
+    notionApi.getPage = jest.fn().mockResolvedValue(data);
   };
 
   describe('getPage', () => {
