@@ -43,7 +43,7 @@ describe('api', () => {
     it('recordMap 과 post 를 반환한다.', async () => {
       const mockResult = {
         post: {
-          createdTime: '3/18/2020',
+          createdTime: '3/17/2020',
           description: 'description',
           id: 'id',
           tags: 'tags',
