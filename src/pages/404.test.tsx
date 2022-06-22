@@ -6,13 +6,13 @@ import { NextRouter } from 'next/router';
 
 import { createMockRouter } from '@/src/test-utils/createMockRouter';
 
-import NotFoundPage from './404.page';
+import Custom404 from './404.page';
 
 describe('404 Page', () => {
   function renderComponent(router: NextRouter) {
     return render(
       <RouterContext.Provider value={router}>
-        <NotFoundPage />
+        <Custom404 />
       </RouterContext.Provider>,
     );
   }

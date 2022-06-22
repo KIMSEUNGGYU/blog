@@ -4,7 +4,7 @@ import { NextSeo } from 'next-seo';
 
 import ErrorPage from '@/components/common/Error';
 
-export default function NotFoundPage() {
+export default function Custom404() {
   const router = useRouter();
 
   const handleGoHome = () => router.push('/');
