@@ -17,6 +17,12 @@
   <img src="https://img.shields.io/badge/GitHub Actions-%20-2088FF?logo=GitHub Actions"/>
 </p>
 
+## WIKI
+> 프로젝트를 진행하면서 경험한 다양한 내용 - wiki
+- [🐛 에러(이슈) 및 해결 방법](https://github.com/KIMSEUNGGYU/blog/wiki/%F0%9F%90%9B-%EC%97%90%EB%9F%AC(%EC%9D%B4%EC%8A%88)-%EB%B0%8F-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95)
+- [👨‍💻🤔 적용 내용 및 참고할만한 내용](https://github.com/KIMSEUNGGYU/blog/wiki/%F0%9F%91%A8%E2%80%8D%F0%9F%92%BB%F0%9F%A4%94-%EC%A0%81%EC%9A%A9-%EB%82%B4%EC%9A%A9-%EB%B0%8F-%EC%B0%B8%EA%B3%A0%ED%95%A0%EB%A7%8C%ED%95%9C-%EB%82%B4%EC%9A%A9)
+- [❓💡 고민 및 깨달음 점](https://github.com/KIMSEUNGGYU/blog/wiki/%E2%9D%93%F0%9F%92%A1-%EA%B3%A0%EB%AF%BC-%EB%B0%8F-%EA%B9%A8%EB%8B%AC%EC%9D%8C-%EC%A0%90)
+
 ## DEMO
 [![DEMO](https://user-images.githubusercontent.com/45627868/174495446-72a220fa-2fcc-4c67-812a-a40be10fa94f.png)](https://youtu.be/a07aelw85m0)
 
