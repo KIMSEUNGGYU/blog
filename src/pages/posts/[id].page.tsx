@@ -68,5 +68,6 @@ export async function getStaticProps({ params }: any) {
       recordMap,
       post,
     },
+    revalidate: 10,
   };
 }
