@@ -14,8 +14,8 @@ describe('블로그 홈화면', () => {
     it('헤더를 렌더링한다.', () => {
       cy.get("[alt = 'logo']");
       cy.contains('블로그');
-      cy.contains('시리즈');
-      cy.contains('나');
+      // cy.contains('시리즈');
+      // cy.contains('나');
     });
 
     it('태그들을 렌더링한다.', () => {
