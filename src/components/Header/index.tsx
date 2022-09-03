@@ -10,8 +10,8 @@ import * as S from './styles';
 // 시리즈, 나 기능 구현시 최종 형태로 수정
 const links = [
   { path: '/', label: '블로그', title: '' },
-  { path: '', label: '시리즈', title: '👨‍💻 Oops! 개발 중입니다' }, // 개발중
-  { path: '', label: '나', title: '👨‍💻 Oops! 개발 중입니다' }, // 개발중
+  // { path: '', label: '시리즈', title: '👨‍💻 Oops! 개발 중입니다' }, // 개발중
+  // { path: '', label: '나', title: '👨‍💻 Oops! 개발 중입니다' }, // 개발중
 ];
 
 // TODO-GYU: Link 데이터 공통된 거끼리 정의해서 map 으로 Header 기능 리팩토링
