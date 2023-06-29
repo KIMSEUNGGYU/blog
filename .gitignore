@@ -45,3 +45,5 @@ log.txt
 
 cypress/e2e/1-*
 cypress/e2e/2-*
+
+.idea
