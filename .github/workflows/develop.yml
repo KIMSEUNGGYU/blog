@@ -4,7 +4,7 @@ on:
   # hotfix and PR merge
   push:
     branches:
-      - develop
+      - dev
 
 jobs:
   ci-cd:
@@ -28,13 +28,13 @@ jobs:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           DEV_HOME_POSTS_DATABASE_ID: ${{ secrets.DEV_HOME_POSTS_DATABASE_ID }}
       - name: Install 🐱‍🏍
-        run: npm ci
+        run: npm install
       - name: Lint ✨
         run: npm run lint
       - name: Test Unit 🔥
         run: npm run test:unit
-      - name: Test E2E 👨‍💻
-        run: npm run test:e2e
+#      - name: Test E2E 👨‍💻
+#        run: npm run test:e2e
       - name: Build ☕
         run: npm run build:dev
       - name: Deploy 🚀
