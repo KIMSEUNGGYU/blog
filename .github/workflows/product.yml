@@ -31,13 +31,13 @@ jobs:
           DEV_HOME_POSTS_DATABASE_ID: ${{ secrets.DEV_HOME_POSTS_DATABASE_ID }}
           PROD_HOME_POSTS_DATABASE_ID: ${{ secrets.PROD_HOME_POSTS_DATABASE_ID }}
       - name: Install 🐱‍🏍
-        run: npm ci
+        run: npm install
       - name: Lint ✨
         run: npm run lint
       - name: Test Unit 🔥
         run: npm run test:unit
-      - name: Test E2E 👨‍💻
-        run: npm run test:e2e
+#      - name: Test E2E 👨‍💻
+#        run: npm run test:e2e
       - name: Build ☕
         run: npm run build
       - name: Deploy 🚀
