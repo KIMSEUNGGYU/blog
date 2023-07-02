@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
 
 export const TagItem = styled.li`
-  margin-right: 1rem;
-  writing-mode: vertical-lr;
+  display: inline;
+  white-space: nowrap;
+  
   button {
     padding: 0.5rem;
     background-color: ${({ theme }) => theme.background.third};
