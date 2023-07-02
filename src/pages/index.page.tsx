@@ -34,5 +34,6 @@ export async function getStaticProps() {
       tags,
       posts,
     },
+    revalidate: 10
   };
 }
