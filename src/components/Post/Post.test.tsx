@@ -7,10 +7,13 @@ jest.mock('react-notion-x');
 jest.mock('react-notion-x/build/third-party/code', () => ({
   Code: () => <>Code</>,
 }));
+jest.mock('react-notion-x/build/third-party/collection', () => ({
+  Collection: () => <>Collection</>,
+}));
 
 // ❓ THINK-GYU: 3-party 라이브러리를 테스트에 대하여 좋은 테스트 방법 찾기
 // Post 는 NotionRender 를 활용하여 NotionContents 렌더링하는 컴포넌트
-describe('Post', () => {
+describe.only('Post', () => {
   it('노션에 등록된 컨텐츠를 렌더링한다', () => {
     const { container } = render(<Post recordMap={{}} />);
 
