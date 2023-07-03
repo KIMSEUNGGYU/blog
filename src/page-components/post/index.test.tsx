@@ -13,6 +13,9 @@ jest.mock('react-notion-x');
 jest.mock('react-notion-x/build/third-party/code', () => ({
   Code: () => <>Code</>,
 }));
+jest.mock('react-notion-x/build/third-party/collection', () => ({
+  Collection: () => <>Collection</>,
+}));
 
 // 💡 TODO-GYU: E2E 테스트
 // ❓ 굳이 해당 테스트가 필요한가 궁금!
