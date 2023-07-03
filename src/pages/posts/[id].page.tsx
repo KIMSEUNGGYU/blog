@@ -9,6 +9,7 @@ import { HOME_POSTS_DATABASE_ID } from 'src/constant';
 import { getPosts, getDetailPost } from '@/src/apis';
 
 import { Post } from '@/types/index';
+import { EXPORT_NAME_GET_STATIC_PATHS } from 'next/dist/build/babel/plugins/next-ssg-transform';
 
 type Props = {
   recordMap: any;
@@ -55,7 +56,7 @@ export const getStaticPaths = async () => {
     params: { id: post.id },
   }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: 'blocking' };
 };
 
 export async function getStaticProps({ params }: any) {
