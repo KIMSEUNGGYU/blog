@@ -27,13 +27,17 @@ export async function getStaticProps() {
 
   const { tags, posts } = await getPostsAndTags(postsDatabaseId);
 
-  await generateSiteMap(posts);
+  try {
+    await generateSiteMap(posts);
+  } catch (error) {
+    console.error(error);
+  }
 
   return {
     props: {
       tags,
       posts,
     },
-    revalidate: 10
+    revalidate: 10,
   };
 }
