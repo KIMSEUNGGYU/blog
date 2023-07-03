@@ -11,6 +11,7 @@ const Code = dynamic(() =>
     return m.Code;
   }),
 );
+import { Collection } from 'react-notion-x/build/third-party/collection';
 
 import { ExtendedRecordMap } from 'notion-types';
 
@@ -30,6 +31,7 @@ export default function Post({ recordMap }: Props) {
         darkMode={true}
         components={{
           Code,
+          Collection,
           nextImage: Image,
           nextLink: Link,
         }}
