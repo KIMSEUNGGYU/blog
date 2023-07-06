@@ -33,6 +33,9 @@ const DATABASE_ITEM = {
         title: {
           title: [],
         },
+        temporary: {
+          checkbox: true,
+        },
       },
       url: 'https://www.notion.so/Kale-92e5d804e3994e9d839234f67e6f732f',
     },
