@@ -24,6 +24,7 @@ import dark from '@/styles/theme';
 import DefaultLayout from '../layouts';
 
 import * as gtag from '../libs/gtag';
+import Head from 'next/head';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -64,6 +65,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           `,
           }}
         />
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1 user-scalable=no" />
+        </Head>
         <Provider store={store}>
           <DefaultLayout>
             <Component {...pageProps} />
