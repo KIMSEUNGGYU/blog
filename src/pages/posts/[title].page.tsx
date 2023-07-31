@@ -6,11 +6,11 @@ import PostPage from '@/page-components/post';
 
 import { HOME_POSTS_DATABASE_ID } from 'src/constant';
 
-import { getPosts, getDetailPost } from '@/src/apis';
+import { getPosts, getDetailPost, getPostItemByTitle } from '@/src/apis';
 
 import { Post } from '@/types/index';
-import { EXPORT_NAME_GET_STATIC_PATHS } from 'next/dist/build/babel/plugins/next-ssg-transform';
 
+import { EXPORT_NAME_GET_STATIC_PATHS } from 'next/dist/build/babel/plugins/next-ssg-transform';
 type Props = {
   recordMap: any;
   post: Post;
@@ -53,17 +53,21 @@ export const getStaticPaths = async () => {
   const posts = await getPosts(postsDatabaseId);
 
   const paths = posts.map((post: Post) => ({
-    params: { id: post.id },
+    params: { title: post.title },
   }));
 
   return { paths, fallback: 'blocking' };
 };
 
 export async function getStaticProps({ params }: any) {
-  const postId = params.id;
+  const postId = params.title;
 
-  const { recordMap, post } = await getDetailPost(postId);
+  const result = await getPostItemByTitle(postId);
+  if (!result) {
+    return { props: {} };
+  }
 
+  const { recordMap, post } = await getDetailPost(result.id);
   return {
     props: {
       recordMap,
