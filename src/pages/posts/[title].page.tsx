@@ -9,8 +9,8 @@ import { HOME_POSTS_DATABASE_ID } from 'src/constant';
 import { getPosts, getDetailPost, getPostItemByTitle } from '@/src/apis';
 
 import { Post } from '@/types/index';
-import * as notionClient from '@/src/apis/notion-client';
 
+import { EXPORT_NAME_GET_STATIC_PATHS } from 'next/dist/build/babel/plugins/next-ssg-transform';
 type Props = {
   recordMap: any;
   post: Post;
