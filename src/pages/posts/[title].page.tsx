@@ -6,9 +6,10 @@ import PostPage from '@/page-components/post';
 
 import { HOME_POSTS_DATABASE_ID } from 'src/constant';
 
-import { getPosts, getDetailPost } from '@/src/apis';
+import { getPosts, getDetailPost, getPostItemByTitle } from '@/src/apis';
 
 import { Post } from '@/types/index';
+import * as notionClient from '@/src/apis/notion-client';
 
 type Props = {
   recordMap: any;
@@ -52,17 +53,21 @@ export const getStaticPaths = async () => {
   const posts = await getPosts(postsDatabaseId);
 
   const paths = posts.map((post: Post) => ({
-    params: { id: post.id },
+    params: { title: post.title },
   }));
 
   return { paths, fallback: 'blocking' };
 };
 
 export async function getStaticProps({ params }: any) {
-  const postId = params.id;
+  const postId = params.title;
 
-  const { recordMap, post } = await getDetailPost(postId);
+  const result = await getPostItemByTitle(postId);
+  if (!result) {
+    return { props: {} };
+  }
 
+  const { recordMap, post } = await getDetailPost(result.id);
   return {
     props: {
       recordMap,

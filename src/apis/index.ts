@@ -3,6 +3,7 @@ import notionApi from './notion-api/client';
 
 import { Post, MultiSelectType } from '@/types/index';
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
+import { HOME_POSTS_DATABASE_ID } from '@/src/constant';
 
 export async function getDetailPost(postId: string) {
   const [recordMap, postPage]: any = await Promise.all([notionApi.getPage(postId), notionClient.getPage(postId)]);
@@ -89,4 +90,22 @@ export async function getPosts(rootPostId: string) {
     });
 
   return posts;
+}
+
+export async function getPostItemByTitle(title: string) {
+  const response = await notionClient.getDatabaseItem({
+    database_id: HOME_POSTS_DATABASE_ID,
+    filter: {
+      property: 'title',
+      rich_text: {
+        contains: title.replaceAll('-', ' '),
+      },
+    },
+  });
+
+  if (!response.results.length) {
+    return null;
+  }
+
+  return response.results[0];
 }
