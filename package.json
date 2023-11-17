@@ -12,7 +12,9 @@
     "test:e2e": "npm run build:dev && start-server-and-test http://localhost:3000 cy:run",
     "watch": "jest --watchAll",
     "coverage": "jest --coverage",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "env:dev": "vercel env pull .env.local --environment=development",
+    "env:prod": "vercel env pull .env.local --environment=production"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
@@ -42,6 +44,7 @@
     "eslint-plugin-testing-library": "5.0.1",
     "given2": "^2.1.7",
     "jest": "27.4.5",
+    "prettier": "^3.1.0",
     "start-server-and-test": "^1.14.0",
     "typescript": "4.5.4"
   }

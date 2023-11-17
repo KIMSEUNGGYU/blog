@@ -10,7 +10,8 @@ import { getPosts, getDetailPost, getPostItemByTitle } from '@/src/apis';
 
 import { Post } from '@/types/index';
 
-import { EXPORT_NAME_GET_STATIC_PATHS } from 'next/dist/build/babel/plugins/next-ssg-transform';
+import { formatDate } from '@/src/utils/formatter';
+
 type Props = {
   recordMap: any;
   post: Post;
@@ -71,7 +72,7 @@ export async function getStaticProps({ params }: any) {
   return {
     props: {
       recordMap,
-      post,
+      post: { ...post, createdTime: formatDate(post.createdTime) },
     },
     revalidate: 10,
   };
