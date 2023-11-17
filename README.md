@@ -17,6 +17,18 @@
   <img src="https://img.shields.io/badge/GitHub Actions-%20-2088FF?logo=GitHub Actions"/>
 </p>
 
+## 👨🏻‍💻 How to Start
+> vercel 을 아용해서 env 파일을 관리하고 있습니다.
+
+### env pull
+```shell
+# npm i -g vercel
+vercel env pull .env.local --environment=development
+# or npm run env:dev
+```
+
+
+
 ## WIKI
 > 프로젝트를 진행하면서 경험한 다양한 내용 - wiki
 - [🐛 에러(이슈) 및 해결 방법](https://github.com/KIMSEUNGGYU/blog/wiki/%F0%9F%90%9B-%EC%97%90%EB%9F%AC(%EC%9D%B4%EC%8A%88)-%EB%B0%8F-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95)
