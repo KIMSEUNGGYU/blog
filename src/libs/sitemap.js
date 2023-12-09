@@ -12,7 +12,7 @@ export function generateSiteMap(posts) {
     <loc>https://kimseunggyu.vercel.app</loc>
   </url>
   ${posts //
-    .map(({ id }) => `<url><loc>${`${BASE_URL}/${id}`}</loc></url>`)
+    .map(({ title }) => `<url><loc>${`${BASE_URL}/${title}`}</loc></url>`)
     .join('')}
 </urlset>
 `.replace(',', '');
